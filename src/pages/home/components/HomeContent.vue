@@ -18,18 +18,31 @@
 </template>
 
 <script>
+import { mapMutations } from "vuex";
 import FollowContent from "./component/Content.vue";
 import Recommend from "./component/Recommend.vue";
+
 export default {
   name: "HomeContent",
   data() {
     return {
-      selected: "1"
+      selected: this.$store.state.contentSelected
     };
   },
   components: {
     FollowContent,
     Recommend
+  },
+  methods: {
+    handleChangeContentSelected(selected) {
+      this.changeContentSelected(selected);
+    },
+    ...mapMutations(["changeContentSelected"])
+  },
+  watch: {
+    selected(val) {
+      this.handleChangeContentSelected(val);
+    }
   }
 };
 </script>

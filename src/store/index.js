@@ -1,5 +1,6 @@
 import Vue from "vue";
 import Vuex from "vuex";
+
 Vue.use(Vuex);
 
 export default new Vuex.Store({
@@ -8,6 +9,7 @@ export default new Vuex.Store({
     quContent: "", //前面两个是提问的时候将值传给标签那个组件的，
     //这个是当前查看的问题或查看的回答所属的问题,
     homeSelected: "1",
+    contentSelected: "1",
     questionInfo: {
       id: 0,
       title: "",
@@ -60,6 +62,9 @@ export default new Vuex.Store({
   mutations: {
     changeHomeSelected(state, selected) {
       state.homeSelected = selected;
+    },
+    changeContentSelected(state, selected) {
+      state.contentSelected = selected;
     },
     newQuestion(state, qu) {
       state.quTitle = qu.title;

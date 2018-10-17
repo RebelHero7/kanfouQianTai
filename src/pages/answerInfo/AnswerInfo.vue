@@ -110,13 +110,13 @@ export default {
       this.commentList = [];
       this.getAllComment();
     },
-      likeComment(item){
-        axios.post("/api/likeComment?commentId=" + item.commentId).then((res) =>{
-            res = res.data;
-            item.likeCount = res.likeCount;
-            item.isLike = res.isLike;
-        })
-      },
+    likeComment(item) {
+      axios.post("/api/likeComment?commentId=" + item.commentId).then(res => {
+        res = res.data;
+        item.likeCount = res.likeCount;
+        item.isLike = res.isLike;
+      });
+    },
     handleAddComment() {
       if (this.inputComment.length > 0) {
         axios
@@ -231,14 +231,14 @@ export default {
           position: absolute;
           right: 0.7rem;
         }
-          .change {
-              color: #00bcd4;
-          }
-          .like-count{
-              font-size: 0.32rem;
-              position: absolute;
-              right: 0.2rem;
-          }
+        .change {
+          color: #00bcd4;
+        }
+        .like-count {
+          font-size: 0.32rem;
+          position: absolute;
+          right: 0.2rem;
+        }
       }
     }
   }

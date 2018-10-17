@@ -101,7 +101,9 @@ export default {
     //这里为什么不用路由，因为这个是从问题详情页进去的，如果使用路由就会覆盖之前的，如从首页进来的答案。
     handleDetail(index) {
       axios
-        .get("/api/getAnswerFromQuestion?commentId=" + this.ques[index].comment.id)
+        .get(
+          "/api/getAnswerFromQuestion?commentId=" + this.ques[index].comment.id
+        )
         .then(ret => {
           ret = ret.data;
           this.$set(this.ques[index].comment, "isFollow", ret.isFollow);
@@ -118,8 +120,7 @@ export default {
           });
         });
     },
-    ...mapMutations(["answerInfo", "questionInfo", "answerUserInfo"]),
-
+    ...mapMutations(["answerInfo", "questionInfo", "answerUserInfo"])
   }
 };
 </script>

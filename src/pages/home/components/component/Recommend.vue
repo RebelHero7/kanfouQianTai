@@ -1,44 +1,54 @@
 <template>
-    <ul class="content-ul">
-        <li class="content-li"
-            v-for="(item, index)
-                of
-            ques"
-            :key="index">
-            <div >
-                <div class="title">
-                    {{item.dataJson.questionTitle}}
-                </div>
+    <div style="margin-top: .2rem">
+        <van-tabs>
+            <van-tab v-for="(item, index) in labels" :key="index" :title="item.name">
 
-                <div class="text-content">
-                    {{item.dataJson.userName}}：{{item.dataJson.commentContent}}
-                </div>
-            </div>
-            <div class="related">
-                <span>{{item.dataJson.commentLikeCount}}赞同·</span>
-                <span>{{item.dataJson.commentCommCount}}评论</span>
-            </div>
-        </li>
-    </ul>
+            </van-tab>
+            <ul class="content-ul">
+                <li class="content-li"
+                    v-for="(item, index)
+                            of
+                        ques"
+                    :key="index"
+                    @click="handleAnswerDetail(item)">
+                    <div >
+                        <div class="title">
+                            {{item.questionTitle}}
+                        </div>
+
+                        <div class="text-content">
+                            {{item.userName}}：{{item.commentContent}}
+                        </div>
+                    </div>
+                    <div class="related">
+                        <span>{{item.likeCount}}赞同·</span>
+                        <span>{{item.commentCount}}评论</span>
+                    </div>
+                </li>
+            </ul>
+        </van-tabs>
+
+    </div>
 </template>
 
 <script>
 import { mapMutations } from "vuex";
 import axios from "axios";
-
 export default {
+
   name: "Recommend",
   data() {
     return {
-      ques: []
+      ques: [],
+        labels:[]
     };
   },
   methods: {
     getQue() {
-      axios.get("api/getCommend").then(res => {
+      axios.get("api/getDefaultCommend").then(res => {
         res = res.data.vos;
         for (let i in res) {
-          this.ques.push(res[i]);
+          this.ques.push(res[i].objs);
         }
       });
     },
@@ -61,6 +71,14 @@ export default {
       this.questionId(questionId);
       this.$router.push("/questionInfo");
     },
+      getLabels(){
+        axios.get("/api/getAllLabel").then((res) => {
+            res = res.data.labels;
+            for(let i in res){
+                this.labels.push(res[i]);
+            }
+        })
+      },
     ...mapMutations([
       "answerInfo",
       "questionInfo",
@@ -69,6 +87,7 @@ export default {
     ])
   },
   mounted() {
+    this.getLabels();
     this.getQue();
   }
 };
@@ -78,14 +97,14 @@ export default {
 .content-ul {
   .content-li {
     box-sizing: border-box;
-    padding: 0 0.3rem;
+    padding: 0.3rem;
     background: #fff;
     margin-top: 0.25rem;
     box-shadow: 0 -2px 2px rgba(213, 215, 217, 0.8),
       0 2px 2px rgba(213, 215, 217, 0.8);
     .title {
       font-family: "Microsoft YaHei";
-      font-size: 14px;
+      font-size: 18px;
       font-weight: bold;
     }
     .text-content {
@@ -97,7 +116,6 @@ export default {
     }
     .related {
       color: #99a4aa;
-      padding-bottom: 0.2rem;
     }
   }
 }

@@ -8,9 +8,15 @@ import MintUI from "mint-ui";
 import "mint-ui/lib/style.css";
 import store from "./store/index";
 import use from "./assets/js/use"; //时间转换
+import Vuetify from 'vuetify'
+import vant from "vant";
+import "vant/lib/vant-css/index.css";
+import 'vuetify/dist/vuetify.min.css'
 
 Vue.config.productionTip = false;
 Vue.use(MintUI);
+Vue.use(vant);
+Vue.use(Vuetify);
 Vue.prototype.use = use;
 
 new Vue({

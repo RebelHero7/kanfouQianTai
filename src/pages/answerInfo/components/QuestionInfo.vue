@@ -23,7 +23,6 @@ export default {
   },
   methods: {
     goQuestionInfo(questionId) {
-
       this.$router.push({
         name: "questionInfo",
         params: {

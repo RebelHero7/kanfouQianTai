@@ -158,7 +158,7 @@ export default {
     }
     .title {
       font-family: "Microsoft YaHei";
-      font-size: 14px;
+      font-size: 18px;
       font-weight: bold;
     }
     .text-content {

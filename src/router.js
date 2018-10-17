@@ -46,9 +46,9 @@ export default new Router({
       path: "/questionInfo",
       name: "questionInfo",
       component: QuestionInfo,
-        meta:{
-          keepAlive: false
-        }
+      meta: {
+        keepAlive: false
+      }
       // meta:{awh: true} // 设置当前路由需要校验
     },
     {

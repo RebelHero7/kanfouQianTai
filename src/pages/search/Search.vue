@@ -99,7 +99,6 @@ export default {
     width: 85%;
     height: 0.64rem;
     line-height: 0.64rem;
-    margin: 0.12rem 0.2rem;
     padding-left: 0.3rem;
     border-radius: 0.1rem;
     background-color: #ebebeb;
@@ -127,7 +126,7 @@ export default {
     color: #ff9607;
   }
   .result-title {
-    font-size: 14px;
+    font-size: 18px;
     font-weight: bold;
   }
   .result-content {
