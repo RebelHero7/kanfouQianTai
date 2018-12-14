@@ -34,6 +34,6 @@ export default {
 
 <style lang="scss" scoped>
 .myinfo {
-  background-color: #fcfcfc;
+  background-color: #efefef;
 }
 </style>

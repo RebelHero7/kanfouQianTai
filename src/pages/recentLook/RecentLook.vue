@@ -1,22 +1,27 @@
 <template>
-    <div>
-        <mt-header title="最近浏览">
-            <mt-button icon="back" slot="left" @click="handleBack">返回</mt-button>
-        </mt-header>
-        <ul>
-            <li v-for="(item, index) in recentLook"
-                :key="index"
-                class="list"
-                @click="handleAnswer(item)">
-                <div class="title">
-                    <span >{{item.questionTitle}}{{item.userName}} 的回答</span>
-                </div>
-                <div class="answer-content">
-                    <span >{{item.commentContent}}</span>
-                </div>
-            </li>
-        </ul>
-    </div>
+
+        <div >
+            <mt-header title="最近浏览" style="font-size:18px">
+                <mt-button icon="back" slot="left" @click="handleBack">返回</mt-button>
+            </mt-header>
+            <div class="no-result" v-show="recentLook.length === 0">
+                <span style="font-weight: bold">不好意思您尚未浏览任何回答</span>
+                <br />
+            </div>
+            <ul v-show="recentLook.length !== 0">
+                <li v-for="(item, index) in recentLook"
+                    :key="index"
+                    class="list"
+                    @click="handleAnswer(item)">
+                    <div class="title">
+                        <span >{{item.questionTitle}}{{item.userName}} 的回答</span>
+                    </div>
+                    <div class="answer-content">
+                        <span >{{item.commentContent}}</span>
+                    </div>
+                </li>
+            </ul>
+        </div>
 </template>
 
 <script>
@@ -43,6 +48,7 @@ export default {
           this.recentLook.push(k);
         }
       });
+      //      console.log(this.recentLook.length);
     },
     handleBack() {
       this.$router.go(-1);
@@ -67,6 +73,11 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+.no-result {
+  margin-top: 5rem;
+  text-align: center;
+  font-size: 0.36rem;
+}
 .list {
   border-bottom: 0.02rem solid #949494;
   padding: 0 0.5rem;

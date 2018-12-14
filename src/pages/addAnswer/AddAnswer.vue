@@ -1,6 +1,6 @@
 <template>
     <div class="question">
-        <mt-header title="添加回答">
+        <mt-header title="添加回答" style="font-size:18px">
             <mt-button @click="handleClose" slot="left">关闭</mt-button>
             <mt-button :disabled="disabled"
                        slot="right"
@@ -101,6 +101,8 @@ export default {
     width: 100%;
     height: 100%;
     padding: 0.2rem;
+    line-height: 0.5rem;
+    font-size: 20px;
   }
 }
 </style>

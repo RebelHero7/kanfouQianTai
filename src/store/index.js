@@ -8,7 +8,7 @@ export default new Vuex.Store({
     quTitle: "",
     quContent: "", //前面两个是提问的时候将值传给标签那个组件的，
     //这个是当前查看的问题或查看的回答所属的问题,
-    homeSelected: "1",
+    homeSelected: "home",
     contentSelected: "1",
     questionInfo: {
       id: 0,
@@ -31,7 +31,7 @@ export default new Vuex.Store({
     user: {
       id: 0,
       name: "未登录用户",
-      headUrl: "http://images.nowcoder.com/head/500t.png",
+      headUrl: "",
       sex: 0,
       introduction: "这个人没有简介...",
       hasEnter: 0
@@ -43,6 +43,7 @@ export default new Vuex.Store({
       likeCount: 0,
       commentCount: 0,
       isLike: 0,
+      status: 0,
       isCollection: false
     },
     //这个是收藏夹的信息
@@ -65,6 +66,15 @@ export default new Vuex.Store({
     },
     changeContentSelected(state, selected) {
       state.contentSelected = selected;
+    },
+    cheUserHeadUrl(state, res) {
+      state.user.headUrl = res.url;
+    },
+    changeUserSex(state, res) {
+      state.user.sex = res;
+    },
+    changeIntro(state, res) {
+      state.user.introduction = res;
     },
     newQuestion(state, qu) {
       state.quTitle = qu.title;
@@ -105,6 +115,7 @@ export default new Vuex.Store({
       state.answer.isCollection = res.isCollection;
       state.answer.commentCount = res.commentCount;
       res = res.comment;
+      state.answer.status = res.status;
       state.answer.id = res.id;
       state.answer.content = res.content;
     },

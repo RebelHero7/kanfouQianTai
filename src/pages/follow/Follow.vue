@@ -1,6 +1,6 @@
 <template>
     <div>
-        <mt-header title="我的关注">
+        <mt-header title="我的关注" style="font-size:18px">
             <mt-button icon="back" slot="left" @click="handleBack">返回</mt-button>
         </mt-header>
         <mt-navbar v-model="selected" class="shadow">

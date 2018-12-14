@@ -1,5 +1,5 @@
 <template>
-    <div>
+    <div v-if="answer.status === 0">
         <div class="content">
             {{answer.content}}
         </div>
@@ -42,6 +42,10 @@
             </mt-button>
 
         </mt-popup>
+    </div>
+
+    <div v-else class="content">
+        不好意思，您要查看的内容已经被删除。
     </div>
 </template>
 
@@ -127,11 +131,11 @@ export default {
             }
           });
       } else {
+        this.options = [];
         //这里才是获得收藏夹
         this.popupVisible = !this.popupVisible;
         axios.get("/api/getUserCollections").then(res => {
           res = res.data.collections;
-
           for (let i in res) {
             this.options.push({
               value: res[i].id,

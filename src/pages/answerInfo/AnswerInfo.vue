@@ -8,7 +8,7 @@
         </div>
 
         <div class="com-content" v-show="!lookAnswer">
-            <mt-header title="评论详情">
+            <mt-header title="评论详情" style="font-size:18px">
                 <mt-button @click="handleBack" slot="left">X</mt-button>
             </mt-header>
             <div class="answer-count border-topbottom">评论({{answer.commentCount}})</div>
@@ -48,9 +48,8 @@
 <script>
 import InfoHeader from "../questionInfo/components/Head.vue";
 import AnswerFooter from "./components/AnFooter.vue";
-import AnswerUserInfo from "./components/UserInfo.vue";
+import AnswerUserInfo from "./components/AnswerUserInfo.vue";
 import AnswerQuestionInfo from "./components/QuestionInfo.vue";
-import router from "../../router";
 import axios from "axios";
 import { Toast } from "mint-ui";
 
@@ -82,6 +81,7 @@ export default {
       //如果这个不为空，表示是从问题详情页进来的
       if (this.$route.params.user !== undefined) {
         this.user = this.$route.params.user;
+        console.log(this.user);
         this.answer = this.$route.params.comment;
       } else {
         //这个表示从首页进来的。

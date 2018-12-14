@@ -106,7 +106,7 @@ export default {
         )
         .then(ret => {
           ret = ret.data;
-          this.$set(this.ques[index].comment, "isFollow", ret.isFollow);
+          this.$set(this.ques[index].user, "isFollow", ret.isFollow);
           this.$set(this.ques[index].comment, "isLike", ret.isLike);
           this.$set(this.ques[index].comment, "likeCount", ret.likeCount);
           this.$set(this.ques[index].comment, "isCollection", ret.isCollection);

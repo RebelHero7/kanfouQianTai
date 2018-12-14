@@ -20,6 +20,8 @@ import AddCollection from "./pages/myCollection/AddCollection.vue";
 import CollectionInfo from "./pages/myCollection/CollectionInfo.vue";
 import Label from "./pages/Label/Label.vue";
 import SearchQuestion from "./pages/search/Search.vue";
+import Test from "./pages/Test.vue";
+import InfoSet from "./pages/infoSet/InfoSet.vue";
 
 Vue.use(Router);
 
@@ -45,11 +47,7 @@ export default new Router({
     {
       path: "/questionInfo",
       name: "questionInfo",
-      component: QuestionInfo,
-      meta: {
-        keepAlive: false
-      }
-      // meta:{awh: true} // 设置当前路由需要校验
+      component: QuestionInfo
     },
     {
       path: "/choiceLabel",
@@ -130,6 +128,16 @@ export default new Router({
       path: "/searchQuestion",
       name: "searchQuestion",
       component: SearchQuestion
+    },
+    {
+      path: "/test",
+      name: "test",
+      component: Test
+    },
+    {
+      path: "/infoSet",
+      name: "infoSet",
+      component: InfoSet
     }
   ]
 });

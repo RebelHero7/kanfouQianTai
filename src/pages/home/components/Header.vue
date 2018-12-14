@@ -6,7 +6,7 @@
             <router-link to="/addQuestion">
                 <div class="question">
                     <span class="separate">|</span>
-                        <span class="iconfont">&#xe62e;</span>
+                        <span class="iconfont" style="font-size: 18px;">&#xe62e;</span>
                         <span>提问</span>
                 </div>
             </router-link>
@@ -29,15 +29,11 @@ export default {
 .header {
   position: relative;
   overflow: hidden;
-  line-height: 0.86rem;
   text-align: center;
-  color: #fff;
-  background: #00bcd4;
-  font-size: 0.32rem;
-  height: 0.86rem;
+  background: #26a2ff;
+  font-size: 0.36rem;
   .header-input {
     flex: 1;
-    height: 0.64rem;
     line-height: 0.64rem;
     margin: 0.12rem 0.2rem;
     padding-left: 0.3rem;
@@ -45,6 +41,7 @@ export default {
     background: #fff;
     border-radius: 0.1rem;
     .search {
+      font-size: 18px;
       padding-right: 0.3rem;
     }
     .question {

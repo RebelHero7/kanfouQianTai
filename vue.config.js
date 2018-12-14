@@ -16,7 +16,7 @@ module.exports = {
       .set("common", resolve("src/common"));
   },
   devServer: {
-    host: "192.168.25.1",
+    host: "10.91.29.180",
     proxy: {
       "/api": {
         target: "http://127.0.0.1:8080/api",

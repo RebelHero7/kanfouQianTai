@@ -1,8 +1,8 @@
 <template>
     <div class="labelInfo">
         <div class="chat-head">
-            <a class="list-head">
-                <img src="https://pic4.zhimg.com/80/v2-3428cb933e4aa762401efaeb0238a1af_qhd.jpg"/>
+            <a >
+                <img :src="label.imgUrl" class="list-head"/>
             </a>
         </div>
         <div class="label-detail">
@@ -39,14 +39,12 @@ export default {
     .list-head {
       float: left;
       width: 2.4rem;
-      height: 2.4rem;
       overflow: hidden;
       border-radius: 0.2rem;
     }
   }
   .label-detail {
-    float: left;
-    margin: 0.2rem 0.3rem;
+    margin: 0.2rem 0.2rem 0 2.8rem;
     .label-name {
       color: #232323;
       font-weight: bold;
@@ -57,7 +55,6 @@ export default {
       color: #646464;
       font-size: 0.32rem;
       margin-top: 1em;
-      width: 100%;
       overflow: hidden;
       white-space: nowrap;
       text-overflow: ellipsis;

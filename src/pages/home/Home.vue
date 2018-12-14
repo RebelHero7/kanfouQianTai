@@ -1,34 +1,39 @@
 <template>
     <div class="parent">
-
-        <!--:selected="selected"-->
         <!--下滑出现，上滑消失-->
-        <div class="footer">
+        <div>
             <mt-tab-container v-model="selected">
-                <mt-tab-container-item id="1">
+                <mt-tab-container-item id="home">
                     <home-head></home-head>
                     <home-content></home-content>
                 </mt-tab-container-item>
-                <mt-tab-container-item id="2">
+                <mt-tab-container-item id="recommend">
+                    <recommend></recommend>
+                </mt-tab-container-item>
+                <mt-tab-container-item id="notice">
                     <notice></notice>
                 </mt-tab-container-item>
-                <mt-tab-container-item id="3">
+                <mt-tab-container-item id="userInfo">
                     <home-head></home-head>
                     <my-info></my-info>
                 </mt-tab-container-item>
             </mt-tab-container>
 
             <mt-tabbar v-model="selected" v-show="showAbs" fixed>
-                <mt-tab-item id="1">
-                    <div class="iconfont separate">&#xe61f;</div>
+                <mt-tab-item id="home">
+                    <div class="iconfont separate large">&#xe61f;</div>
                     首页
                 </mt-tab-item>
-                <mt-tab-item id="2">
-                    <div class="iconfont separate">&#xe61e;</div>
+                <mt-tab-item id="recommend">
+                    <div class="iconfont separate large">&#xe647;</div>
+                    推荐
+                </mt-tab-item>
+                <mt-tab-item id="notice">
+                    <div class="iconfont separate large">&#xe61e;</div>
                     通知
                 </mt-tab-item>
-                <mt-tab-item id="3">
-                    <div class="iconfont separate">&#xe62a;</div>
+                <mt-tab-item id="userInfo">
+                    <div class="iconfont separate large">&#xe62a;</div>
                     我的
                 </mt-tab-item>
             </mt-tabbar>
@@ -38,9 +43,10 @@
 
 <script>
 import HomeHead from "./components/Header.vue";
-import HomeContent from "./components/HomeContent.vue";
+import HomeContent from "./components/Content.vue";
 import MyInfo from "../myInfo/MyInfo.vue";
 import Notice from "../notice/Notice.vue";
+import Recommend from "../recommend/Recommend.vue";
 import axios from "axios";
 import { mapMutations } from "vuex";
 
@@ -54,6 +60,7 @@ export default {
     };
   },
   components: {
+    Recommend,
     HomeHead,
     HomeContent,
     MyInfo,
@@ -69,13 +76,13 @@ export default {
     ...mapMutations(["userInfo", "changeHomeSelected"]),
     handleScroll() {
       // 页面滚动距顶部距离
-      const scrollTop =
+      const sTop =
         window.pageYOffset ||
         document.documentElement.scrollTop ||
         document.body.scrollTop;
-      const scroll = scrollTop - this.i;
-      this.i = scrollTop;
-      if (scroll < 0) {
+      const scroll = sTop - this.i;
+      this.i = sTop;
+      if (scroll <= 0) {
         this.showAbs = true;
       } else {
         this.showAbs = false;
@@ -101,8 +108,11 @@ export default {
 };
 </script>
 
-<style scoped>
+<style lang="scss" scoped>
 .parent {
   position: relative;
+  .large {
+    font-size: 26px;
+  }
 }
 </style>

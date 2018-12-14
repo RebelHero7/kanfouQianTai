@@ -1,6 +1,6 @@
 <template>
     <div>
-        <mt-header title="添加话题">
+        <mt-header title="添加话题" style="font-size:18px">
             <mt-button icon="back" slot="left" @click="handleBack">返回</mt-button>
 
             <mt-button :disabled="hasDataDis"
@@ -59,6 +59,8 @@
 </template>
 
 <script>
+import { mapMutations } from "vuex";
+
 import { Toast } from "mint-ui";
 import axios from "axios";
 export default {
@@ -124,7 +126,11 @@ export default {
                 message: res.ok,
                 iconClass: "icon icon-success"
               });
-              this.$router.push("/");
+              this.newQuestion({
+                title: "",
+                content: ""
+              }),
+                this.$router.push("/");
             } else {
               Toast({
                 message: res.msg,
@@ -145,7 +151,8 @@ export default {
     },
     handleBack() {
       this.$router.go(-1);
-    }
+    },
+    ...mapMutations(["newQuestion"])
   }
 };
 </script>

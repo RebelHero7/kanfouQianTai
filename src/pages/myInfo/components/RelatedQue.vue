@@ -36,12 +36,13 @@
         <div class="relatedQue">
             <mt-cell
                     title="个人信息设置"
-                    value=">"
+                    to="/infoSet"
+                    is-link
             >
             </mt-cell>
         </div>
         <div class="logout">
-            <mt-button type="danger" size="large" @click="handleLayout">退出登录</mt-button>
+            <van-button type="danger" size="large" @click="handleLayout">退出登录</van-button>
         </div>
     </div>
 </template>
@@ -69,7 +70,6 @@ export default {
   margin-top: 0.5rem;
 }
 .logout {
-  background-color: white;
   height: 3rem;
   line-height: 1.5rem;
   padding-top: 1.5rem;

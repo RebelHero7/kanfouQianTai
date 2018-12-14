@@ -1,7 +1,7 @@
 <template>
     <div>
         <div v-show="showList">
-            <mt-header title="私信">
+            <mt-header title="私信" style="font-size:18px">
                 <mt-button icon="back" @click="handleBack" slot="left">返回</mt-button>
             </mt-header>
             <letter-list></letter-list>

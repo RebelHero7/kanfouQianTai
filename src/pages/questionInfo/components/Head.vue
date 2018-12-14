@@ -7,7 +7,7 @@
                 <div class="question">
                     <span class="separate">|</span>
                     <span class="iconfont">&#xe62e;</span>
-                    <span @click="">提问</span>
+                    <span>提问</span>
                 </div>
             </router-link>
         </div>

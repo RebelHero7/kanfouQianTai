@@ -1,6 +1,6 @@
 <template>
     <div style="height: 100%">
-        <mt-header title="新建收藏夹">
+        <mt-header title="新建收藏夹" style="font-size:18px">
             <mt-button @click="handleClose" slot="left">关闭</mt-button>
 
             <mt-button :disabled="disabled"

@@ -11,24 +11,38 @@
 
         <h1>密码登录</h1>
 
-        <mt-field label="昵称"
-                  style="margin-top: 1rem;"
-                  placeholder="请输入昵称"
-                   v-model="username"></mt-field>
-        <mt-field
-                label="密码"
-                placeholder="请输入密码"
-                type="password"
-                v-model="password"
-        ></mt-field>
-
-        <mt-button type="primary"
-                   size="large"
-                   style="margin-top: .6rem"
-                   :disabled="disabled"
-                    @click="handleClick">登录</mt-button>
+        <div class="input">
 
 
+            <van-cell-group>
+                <van-field
+                        v-model="username"
+                        required
+                        clearable
+                        style="font-size: 16px"
+                        label="用户名"
+                        placeholder="请输入用户名"
+                />
+                <van-field
+                        v-model="password"
+                        required
+                        style="font-size: 16px"
+                        type="password"
+                        label="密码"
+                        placeholder="请输入不少于六位的密码"
+                        :error-message="errorMessage"
+                />
+
+
+            </van-cell-group>
+            <div class="tishi">还没有账号？可点击右上角进行注册哦~</div>
+
+            <mt-button type="primary"
+                       size="large"
+                       style="margin-top: .6rem"
+                       :disabled="disabled"
+                       @click="handleClick">登录</mt-button>
+        </div>
 
     </div>
 </template>
@@ -46,7 +60,8 @@ export default {
       password: "",
       disabled: true,
       timer: null,
-      toast: ""
+      toast: "",
+      errorMessage: ""
     };
   },
   watch: {
@@ -60,7 +75,7 @@ export default {
       }
       this.timer = setTimeout(() => {
         if (this.username.length < 1) {
-          this.toast = "请输入昵称";
+          this.toast = "请输入您的用户名";
           Toast(this.toast);
         }
       }, 200);
@@ -74,14 +89,14 @@ export default {
         return;
       }
       this.timer = setTimeout(() => {
-        if (this.password.length >= 6 && this.username.length !== 0) {
+        if (this.password.length >= 6 && this.username.length > 0) {
           this.disabled = false;
+          this.errorMessage = "";
         } else {
           this.disabled = true;
-          this.toast = "请输入至少6位的密码";
-          Toast(this.toast);
+          this.errorMessage = "请输入至少6位的密码";
         }
-      }, 200);
+      }, 300);
     }
   },
   methods: {
@@ -99,7 +114,7 @@ export default {
           res = res.data;
           if (res.msg === undefined) {
             this.handleUserInfo(res);
-            this.$router.go(-1);
+            this.$router.push("/");
           } else {
             this.toast = res.msg;
             Toast({
@@ -115,12 +130,21 @@ export default {
 
 <style lang="scss" scoped>
 .login {
+  background-color: #fafafa;
   margin: 0 auto;
   h1 {
     font-size: 0.5rem;
     padding-top: 1rem;
     font-weight: bold;
     text-align: center;
+  }
+}
+.input {
+  margin-top: 1.2rem;
+  .tishi {
+    float: right;
+    margin: 0.3rem;
+    color: #999;
   }
 }
 </style>

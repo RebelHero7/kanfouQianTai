@@ -1,7 +1,7 @@
 <template>
 
     <div class="notice">
-        <mt-header title="消息通知"></mt-header>
+        <mt-header title="消息通知" style="font-size: 18px"></mt-header>
         <div class="mess">
             <mt-cell
                     title="私信列表"

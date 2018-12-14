@@ -1,7 +1,7 @@
 <template>
     <div class="my-collection">
 
-        <mt-header title="我的收藏">
+        <mt-header title="我的收藏" style="font-size:18px">
             <router-link to="/" slot="left">
                 <mt-button icon="back">返回</mt-button>
             </router-link>

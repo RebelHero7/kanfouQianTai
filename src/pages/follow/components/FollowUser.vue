@@ -58,7 +58,7 @@ export default {
           }
         });
       } else {
-        MessageBox.confirm("确定取消关注" + ret.userName + "?").then(action => {
+        MessageBox.confirm("确定取消关注" + ret.userName + "?").then(() => {
           axios.post("/api/unFollowUser?userId=" + ret.id).then(res => {
             res = res.data;
             if (res.error !== undefined) {

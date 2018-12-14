@@ -66,7 +66,7 @@ import { mapMutations } from "vuex";
 import axios from "axios";
 
 export default {
-  name: "FollowContent",
+  name: "HomeContent",
   data() {
     return {
       ques: []
@@ -157,18 +157,20 @@ export default {
       }
     }
     .title {
-      font-family: "Microsoft YaHei";
       font-size: 18px;
       font-weight: bold;
+      line-height: 0.5rem;
     }
     .text-content {
       color: #474747;
       padding: 0.2rem 0;
       overflow: hidden;
+      font-size: 16px;
       white-space: nowrap;
       text-overflow: ellipsis;
     }
     .related {
+      font-size: 16px;
       color: #99a4aa;
       padding-bottom: 0.2rem;
     }

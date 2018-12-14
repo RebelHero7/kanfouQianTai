@@ -85,27 +85,29 @@ export default {
   overflow: hidden;
   display: flex;
   height: 1.8rem;
+  background: #fff;
   .item-img {
-    width: 1rem;
-    height: 1rem;
+    width: 1.2rem;
+    height: 1.2rem;
     padding: 0.2rem;
     border-radius: 50%;
   }
   .item-info {
     flex: 1;
     min-width: 0;
-    padding: 0.2rem;
+    padding: 0.3rem 0.1rem;
     position: relative;
     .item-name {
       line-height: 0.44rem;
-      font-size: 0.32rem;
+      font-size: 18px;
     }
     .item-desc {
       height: 0.4rem;
       line-height: 0.4rem;
-      color: #000;
+      color: #999;
       text-align: left;
       margin-top: 0.16rem;
+      font-size: 16px;
     }
     .follow {
       position: absolute;

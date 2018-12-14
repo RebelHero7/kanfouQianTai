@@ -55,7 +55,7 @@ export default {
     handleBack() {
       this.$router.go(-1);
     },
-    getAllCollection(id) {
+    getAllCollection() {
       axios.get("/api/getAllCollection?id=" + this.collection.id).then(res => {
         res = res.data.vos;
         for (let i in res) {
@@ -98,7 +98,7 @@ export default {
             ret.isCollection = true;
           });
       } else {
-        MessageBox.confirm("确定取消收藏?").then(action => {
+        MessageBox.confirm("确定取消收藏?").then(() => {
           axios
             .post(
               "/api/unCollComm?answerId=" +

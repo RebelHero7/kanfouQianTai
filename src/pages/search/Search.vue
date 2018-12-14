@@ -104,13 +104,14 @@ export default {
     background-color: #ebebeb;
   }
   .search-back {
+    font-size: 16px;
     color: #646464;
     margin-left: 0.2rem;
   }
   .search-cancel {
     position: absolute;
     top: 0.12rem;
-    right: 0.4rem;
+    right: 0.6rem;
     line-height: 0.64rem;
   }
 }

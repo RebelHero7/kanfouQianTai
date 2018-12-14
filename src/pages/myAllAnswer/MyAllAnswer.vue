@@ -1,6 +1,6 @@
 <template>
     <div>
-        <mt-header title="我的创作">
+        <mt-header title="我的创作" style="font-size:18px">
             <mt-button icon="back" slot="left" @click="handleBack">返回</mt-button>
         </mt-header>
         <div class="answer-info">
